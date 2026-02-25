@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: my-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: nginx # Specify the Ingress class
+  rules:
+  - host: a0a3fafc8337945938afbb0592c6249f-130269955.ap-south-1.elb.amazonaws.com
+    http:
+      paths:
+      - path: /nginx
+        pathType: Prefix
+        backend:
+          service:
+            name: helm-svc
+            port:
+              number: 80
