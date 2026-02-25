@@ -1,19 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Release.Name }}
+  name: helm-deploy
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: {{ .Release.Name }}
+      app: devops
   template:
     metadata:
       labels:
-        app: {{ .Release.Name }}
+        app: devops
     spec:
       containers:
         - name: node-app
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           ports:
-            - containerPort: 3000
+            - containerPort: {{ .Values.containerPort }}
+      imagePullSecrets:
+      - name: helm
