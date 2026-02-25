@@ -1,0 +1,10 @@
+replicaCount: 2
+
+image:
+  repository: 945219712485.dkr.ecr.ap-south-1.amazonaws.com/my_pvt_repo
+  tag: "latest"
+  pullPolicy: IfNotPresent
+
+service:
+  type: LoadBalancer
+  port: 80
