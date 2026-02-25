@@ -10,7 +10,7 @@ spec:
   - host: aadc19c73263d451e815ed20833603a0-773478152.ap-south-1.elb.amazonaws.com 
     http:
       paths:
-      - path: /nginx
+      - path: /
         pathType: Prefix
         backend:
           service:
